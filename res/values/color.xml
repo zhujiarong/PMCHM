@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- 选择器 -->
+    <color name="select_bt_normal">#309B3B</color>
+    <color name="select_bt_pressed">#1f7527</color>
+    
+    <color name="green">#309B3B</color> <!-- 青色 -->
+    <color name="gray">#E9E9E9</color> <!-- 灰色 -->
+    <color name="gray_self">#44000000</color> <!-- 灰色 -->
+    <color name="red">#ffe60050</color> <!-- 红色 -->
+    <color name="orange_red">#D94D32</color> <!-- 橘红色 -->
+    <color name="orange">#F0B601</color> <!-- 黄色 -->
+    <color name="dark_blue">#45BCBC</color> <!-- 蓝色 -->
+    <color name="white">#ffffff</color> <!-- 白色 -->
+    <color name="balk">#101020</color> <!-- 紫色 -->
+    <color name="blue">#5A62D1</color> <!-- 蓝色 -->
+    <color name="zise">#694180</color> <!-- 紫色 -->
+
+    <!-- 分隔线颜色 -->
+    <color name="line">#C2C2C2</color>
+    <color name="title_bg">#FF2284CF</color>
+    <color name="press_title_bg">#44222222</color>
+
+    <!-- 按钮颜色 -->
+    <color name="btn_default">#FFCDCDCD</color>
+    <color name="btn_press">#FF2CA2CA</color>
+
+    <!-- 事件编缉背景 -->
+    <color name="action_bg1">#FFFFFFFF</color>
+    <color name="action_bg2">#FFDDEE8E</color>
+    <color name="action_bg3">#FF98E8E7</color>
+    <color name="action_bg4">#FF90D9EA</color>
+    <color name="action_bg5">#FFD7A29A</color>
+    <color name="action_bg6">#FFF2C8D6</color>
+    <color name="action_bg7">#FF9EC5F0</color>
+    <color name="action_bg8">#FFFDDB91</color>
+
+</resources>

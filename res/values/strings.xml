@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PMCHM</string>
+    <string name="title_input_secret">輸入短密碼</string>
+    <string name="title_input_gesture">輸入手势密碼</string>
+    <string name="title_activity_secret_manager">SecretManagerActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="str_laoding">正在加载数据</string>
+
+</resources>

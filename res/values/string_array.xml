@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="option_name">
+        <item>CO2</item>
+        <item>PM2.5</item>
+        <item>HR</item>
+    </string-array>
+    <string-array name="repeat_period">
+        <item>无</item>
+        <item>日</item>
+        <item>周</item>
+        <item>月</item>
+    </string-array>
+    <string-array name="detail_period">
+        <item>今天</item>
+        <item>本周</item>
+        <item>本月</item>
+        <item>所有</item>
+    </string-array>
+	<string-array name="max_time">
+	    <item >半个月</item>
+	    <item >一个月</item>
+	    <item >二个月</item>
+	    <item >三个月</item>
+	    <item >四个月</item>
+	    <item >五个月</item>
+	    <item >六个月</item>
+	    <item >七个月</item>
+	    <item >八个月</item>
+	    <item >九个月</item>
+	    <item >十个月</item>
+	    <item >十一个月</item>
+	    <item >十二个月</item>
+	</string-array>    
+	<string-array name="limit_time">
+	    <item >半小时</item>
+	    <item >一小时</item>
+	    <item >二小时</item>
+	    <item >三小时</item>
+	    <item >四小时</item>
+	    <item >五小时</item>
+	    <item >六小时</item>
+	    <item >七小时</item>
+	    <item >八小时</item>
+	    <item >九小时</item>
+	    <item >十小时</item>
+	    <item >十一小时</item>
+	    <item >十二小时</item>
+	</string-array>
+</resources>
