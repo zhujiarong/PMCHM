@@ -3,6 +3,8 @@ package com.example.pmchm.view.activity;
 import com.example.pmchm.R;
 import com.example.pmchm.common.Constants;
 import com.example.pmchm.utils.DensityUtil;
+import com.example.pmchm.utils.ToastUtils;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -60,7 +62,7 @@ public class AverageActivity extends BaseActivity {
 
 			@Override
 			public int getCount() {
-				return 3;
+				return 7;
 			}
 		});
 	}
@@ -74,7 +76,20 @@ public class AverageActivity extends BaseActivity {
 
 		/* 当选择下拉菜单项的时候，将Activity中的内容置换为对应的Fragment */
 		public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-			System.out.println("onNavigationItemSelected =" + itemPosition + "!!!!" + itemId);
+			switch (itemPosition) {
+			case 0:
+				ToastUtils.showToast(getApplicationContext(), "近一周平均", 0);
+				break;
+			case 1:
+				ToastUtils.showToast(getApplicationContext(), "今日", 0);
+				break;
+			case 2:
+				ToastUtils.showToast(getApplicationContext(), "近一个月平均", 0);
+				break;
+			case 3:
+				ToastUtils.showToast(getApplicationContext(), "近一年平均", 0);
+				break;
+			}
 			return true;
 		}
 	}

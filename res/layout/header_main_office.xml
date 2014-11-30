@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_main_header_office"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_huanbaoju_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="52"
+                    android:textColor="@color/balk"
+                    android:textSize="50dp" />
+
+                <TextView
+                    android:id="@+id/tv_huanbaoju"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="环保局"
+                    android:textColor="@color/balk"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PM2.5数值(ugr/m)"
+                    android:textColor="@color/balk" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/good_min" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1sp"
+            android:layout_height="fill_parent"
+            android:background="@color/line" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:textColor="@color/balk" >
+
+                <TextView
+                    android:id="@+id/tv_meishiguan_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="120"
+                    android:textColor="@color/balk"
+                    android:textSize="50dp" />
+
+                <TextView
+                    android:id="@+id/tv_meishiguan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="美使馆"
+                    android:textColor="@color/balk"
+                    android:textSize="20dp" />
+
+                <TextView
+                     android:textColor="@color/balk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PM2.5数值(ugr/m)" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bad_min" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/line" />
+
+</LinearLayout>

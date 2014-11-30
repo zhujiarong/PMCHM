@@ -4,7 +4,6 @@ import com.example.pmchm.R;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GraphViewSeries;
 import com.jjoe64.graphview.LineGraphView;
-import com.jjoe64.graphview.GraphView.GraphViewData;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -23,23 +22,25 @@ public class HrFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_description, null);
-		RelativeLayout layout = (RelativeLayout) view.findViewById(R.id.rl_line_chart);
+		View header_average = inflater.inflate(R.layout.header_average, null);
+		
+		RelativeLayout layout = (RelativeLayout) header_average.findViewById(R.id.rl_line_chart);
 
-		GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] { new GraphViewData(1, 2.0d),
-				new GraphViewData(2, 1.5d), new GraphViewData(2.5, 3.0d) // another
-																			// frequency
-				, new GraphViewData(3, 2.5d), new GraphViewData(4, 1.0d), new GraphViewData(5, 3.0d) });
-
-		GraphView graphView = new LineGraphView(getActivity() // context
-				, "GraphViewDemo" // heading
-		);
+		GraphViewSeries exampleSeries = new GraphViewSeries(new GraphView.GraphViewData[] {
+				new GraphView.GraphViewData(1, 1.6d), new GraphView.GraphViewData(2, 2.4d),
+				new GraphView.GraphViewData(3, 2.5d), new GraphView.GraphViewData(4, 2.7d),
+				new GraphView.GraphViewData(5, 2.7d), new GraphView.GraphViewData(6, 2.3d), });
+		GraphView graphView = new LineGraphView(getActivity(), "");
+		graphView.setHorizontalLabels(new String[] { "1:00", "2:00", "3:00", "4:00", "5:00", "6:00" });
+		graphView.getGraphViewStyle().setNumVerticalLabels(1);
 		((LineGraphView) graphView).setDrawDataPoints(true);
 		((LineGraphView) graphView).setDataPointsRadius(15f);
-		graphView.addSeries(exampleSeries); // data
-
+		((LineGraphView) graphView).setShowVerticalLabels(false);
+		graphView.addSeries(exampleSeries);
 		layout.addView(graphView);
 		
 		ListView lv_item = (ListView) view.findViewById(R.id.lv_item);
+		lv_item.addHeaderView(header_average);
 		lv_item.setAdapter(new BaseAdapter() {
 
 			@Override

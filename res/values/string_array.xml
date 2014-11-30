@@ -13,10 +13,10 @@
         <item>老外滩</item>
     </string-array>
     <string-array name="average_list">
+        <item>近一周平均</item>
         <item>今天</item>
-        <item>近7日</item>
-        <item>近一个月</item>
-        <item>近一个年</item>
+        <item>近一个月平均</item>
+        <item>近一年平均</item>
     </string-array>
     <string-array name="repeat_period">
         <item>无</item>

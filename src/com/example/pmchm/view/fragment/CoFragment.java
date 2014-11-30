@@ -28,7 +28,9 @@ public class CoFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_description, null);
-		RelativeLayout layout = (RelativeLayout) view.findViewById(R.id.rl_line_chart);
+		View header_average = inflater.inflate(R.layout.header_average, null);
+
+		RelativeLayout layout = (RelativeLayout) header_average.findViewById(R.id.rl_line_chart);
 
 		GraphViewSeries exampleSeries = new GraphViewSeries(new GraphView.GraphViewData[] {
 				new GraphView.GraphViewData(1, 1.6d), new GraphView.GraphViewData(2, 2.4d),
@@ -44,6 +46,7 @@ public class CoFragment extends Fragment {
 		layout.addView(graphView);
 
 		ListView lv_item = (ListView) view.findViewById(R.id.lv_item);
+		lv_item.addHeaderView(header_average);
 		lv_item.setAdapter(new BaseAdapter() {
 
 			@Override
@@ -69,7 +72,7 @@ public class CoFragment extends Fragment {
 				return 3;
 			}
 		});
-		
+
 		lv_item.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {

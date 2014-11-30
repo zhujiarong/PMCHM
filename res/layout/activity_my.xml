@@ -17,8 +17,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/lock" />
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/device_manager" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -26,7 +26,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:src="@drawable/jt_right_red" />
+            android:src="@drawable/arrow_backwards" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,8 +58,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/lock" />
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/refresh" />
 
         <ImageView
             android:id="@+id/iv_jiantou"
@@ -68,7 +68,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:src="@drawable/jt_right_red" />
+            android:src="@drawable/arrow_backwards" />
 
         <TextView
             android:id="@+id/tv_check_version"
@@ -88,7 +88,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
             android:layout_toLeftOf="@id/iv_jiantou"
-            android:src="@drawable/icon_unread" />
+            android:src="@drawable/dot" />
 
         <View
             android:layout_width="fill_parent"
@@ -121,8 +121,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/lock" />
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/about" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -130,7 +130,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:src="@drawable/jt_right_red" />
+            android:src="@drawable/arrow_backwards" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -162,8 +162,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/lock" />
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/secret" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -171,7 +171,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:src="@drawable/jt_right_red" />
+            android:src="@drawable/arrow_backwards" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -180,7 +180,7 @@
             android:layout_marginLeft="18dp"
             android:layout_toRightOf="@+id/iv_devices_icon"
             android:gravity="center_vertical"
-            android:text="修改密码"
+            android:text="修改登录密码"
             android:textSize="15dp" />
 
         <View
@@ -202,8 +202,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/lock" />
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/secret" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -211,7 +211,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:src="@drawable/jt_right_red" />
+            android:src="@drawable/arrow_backwards" />
 
         <TextView
             android:layout_width="wrap_content"

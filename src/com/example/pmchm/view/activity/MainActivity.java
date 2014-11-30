@@ -2,7 +2,6 @@ package com.example.pmchm.view.activity;
 
 import com.example.pmchm.R;
 import com.example.pmchm.common.Constants;
-import com.example.pmchm.common.PreferencesUtils;
 import com.example.pmchm.utils.ToastUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -10,10 +9,10 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -21,7 +20,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements OnClickListener{
 
 	private ListView list_item;
 
@@ -30,6 +29,12 @@ public class MainActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		list_item = (ListView) findViewById(R.id.lv_main);
+		View header_load = View.inflate(getApplicationContext(), R.layout.header_main_load, null);
+		header_load.findViewById(R.id.ll_main_header_load).setOnClickListener(this);
+		list_item.addHeaderView(header_load);
+		View header_office = View.inflate(getApplicationContext(), R.layout.header_main_office, null);
+		header_office.findViewById(R.id.ll_main_header_office).setOnClickListener(this);
+		list_item.addHeaderView(header_office);
 		list_item.setAdapter(new BaseAdapter() {
 
 			@Override
@@ -75,16 +80,10 @@ public class MainActivity extends BaseActivity {
 	@Override
 	protected void onStart() {
 		super.onStart();
-
-		TextView tv_user_name = (TextView) findViewById(R.id.tv_user_name);
-
 		if (isLoad) {
-			String name = PreferencesUtils.getString(appContext, Constants.SP_NAME, Constants.SP_ACCOUNT_NAME);
-			if (!TextUtils.isEmpty(name)) {
-				tv_user_name.setText(name);
-			}
-		} else {
-			tv_user_name.setText("未登录");
+			//TODO 登录
+		}else{
+			//TODO 未登录
 		}
 		httpUtils.send(HttpMethod.POST, Constants.URL_FRTCH, new RequestCallBack<String>() {
 
@@ -136,5 +135,19 @@ public class MainActivity extends BaseActivity {
 	@Override
 	public int getActionBarIcon() {
 		return 0;
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.ll_main_header_load:
+			ToastUtils.showToast(getApplicationContext(), "点击登录", 0);
+			break;
+		case R.id.ll_main_header_office:
+			ToastUtils.showToast(getApplicationContext(), "点击环保局", 0);
+			break;
+		default:
+			break;
+		}
 	}
 }

@@ -2,37 +2,44 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/my_select_bg"
+    android:clickable="true"
     android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="horizontal"
-        android:paddingLeft="10dp"
+        android:layout_height="70dp"
         android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
         android:paddingRight="10dp" >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="总裁办公室" />
+            android:text="总裁办公室"
+            android:textColor="@color/balk"
+            android:textSize="20dp" />
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/edit"
             android:text="重命名" />
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/delect"
             android:text="删除" />
     </LinearLayout>
-    
-    <View 
+
+    <View
         android:layout_width="fill_parent"
-        android:layout_height="1px"
-        android:background="@color/line"
-        />
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/line" />
 
 </LinearLayout>

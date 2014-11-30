@@ -40,7 +40,7 @@
         android:layout_alignLeft="@+id/tv_unit"
         android:layout_below="@+id/tv_unit"
         android:layout_marginTop="3dp"
-        android:src="@drawable/lock" />
+        android:src="@drawable/excellent_min" />
 
     <View
         android:id="@+id/v_line_1"

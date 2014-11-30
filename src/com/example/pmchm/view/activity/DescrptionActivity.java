@@ -1,15 +1,12 @@
 package com.example.pmchm.view.activity;
 
 import java.lang.reflect.Field;
-
 import com.example.pmchm.R;
 import com.example.pmchm.common.Constants;
 import com.example.pmchm.view.MainOptionAdapter;
 import com.example.pmchm.view.fragment.HrFragment;
 import com.example.pmchm.view.fragment.CoFragment;
 import com.example.pmchm.view.fragment.PmFragment;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -118,8 +115,8 @@ public class DescrptionActivity extends BaseActivity implements TabListener {
 		String[] titles = getResources().getStringArray(R.array.option_name);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setIcon(getResources().getDrawable(R.drawable.jy_line_top));
-		actionBar.setDisplayShowHomeEnabled(true);
-		actionBar.setDisplayShowTitleEnabled(true);
+//		actionBar.setDisplayShowHomeEnabled(true);
+//		actionBar.setDisplayShowTitleEnabled(true);
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		// 初始化tab
 		for (String title : titles) {
@@ -156,7 +153,6 @@ public class DescrptionActivity extends BaseActivity implements TabListener {
 
 	@Override
 	public int getActionBarIcon() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 }
