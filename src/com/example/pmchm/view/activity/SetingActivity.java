@@ -70,4 +70,10 @@ public class SetingActivity extends BaseActivity {
 	public int getActivityId() {
 		return Constants.AC_SET;
 	}
+
+	@Override
+	public int getActionBarIcon() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

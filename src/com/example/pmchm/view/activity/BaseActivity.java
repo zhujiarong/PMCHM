@@ -4,7 +4,6 @@ import com.example.pmchm.R;
 import com.example.pmchm.common.Constants;
 import com.example.pmchm.common.PreferencesUtils;
 import com.lidroid.xutils.HttpUtils;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -20,8 +19,10 @@ public abstract class BaseActivity extends ActionBarActivity {
 	public Activity activity;
 	public ActionBar actionBar;
 	public static boolean isLoad = false;
+	public static boolean isShow = false;
 	public static int DEFAULT_OUT_TIME = 20 * 1000;
 	public HttpUtils httpUtils;
+	private static long startedActivityCount = 0l;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,29 +37,61 @@ public abstract class BaseActivity extends ActionBarActivity {
 		if (!TextUtils.isEmpty(title)) {
 			actionBar.setTitle(title);
 		}
+		int icon = getActionBarIcon();
+		if (icon > 0) {
+			actionBar.setIcon(icon);
+		}
 	}
 
 	@Override
 	protected void onStart() {
 		super.onStart();
-		int cookie = PreferencesUtils.getInt(appContext, Constants.SP_PWD_NAME, Constants.SP_COOKIE);
+		startedActivityCount++;
+		if (1 == startedActivityCount && !isShow) {
+			handleVerification();
+		}
+		isShow = false;
+	}
+
+	private void handleVerification() {
+		int cookie = PreferencesUtils.getInt(appContext, Constants.SP_NAME, Constants.SP_COOKIE);
 		if (cookie == 1) {
 			isLoad = true;
 		} else {
 			isLoad = false;
 		}
 		if (isLoad) {
-			String mode = PreferencesUtils.getString(appContext, Constants.SP_PWD_NAME, Constants.SP_PWD);
+			int mode = PreferencesUtils.getInt(appContext, Constants.SP_NAME, Constants.SP_VER_MODE);
 			Intent intent = null;
-			if (!TextUtils.isEmpty(mode)) {
-				if (mode.equals("0")) {
-					intent = new Intent(appContext, SetGestureActivity.class);
-				} else if (mode.equals("1")) {
-					intent = new Intent(appContext, SetNumActivity.class);
+			if (mode >= 0) {
+				if (mode == 0) {
+					String pwd = PreferencesUtils.getString(appContext, Constants.SP_NAME, Constants.SP_PWD_NUM);
+					if (!TextUtils.isEmpty(pwd)) {
+						intent = new Intent(appContext, VerificationOfNumActivity.class);
+					}
+				} else if (mode == 1) {
+					String pwd = PreferencesUtils.getString(appContext, Constants.SP_NAME, Constants.SP_PWD_GES);
+					if (!TextUtils.isEmpty(pwd)) {
+						intent = new Intent(appContext, VerificationOfNineBoxActivity.class);
+					}
 				}
-				startActivity(intent);
+				if (intent != null)
+					startActivityForResult(intent, 0);
 			}
 		}
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (requestCode == 0)
+			isShow = true;
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		startedActivityCount--;
 	}
 
 	@Override
@@ -72,5 +105,7 @@ public abstract class BaseActivity extends ActionBarActivity {
 	public abstract String getActionBarTitle();
 
 	public abstract int getActivityId();
+
+	public abstract int getActionBarIcon();
 
 }

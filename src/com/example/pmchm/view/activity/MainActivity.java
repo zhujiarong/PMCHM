@@ -2,9 +2,15 @@ package com.example.pmchm.view.activity;
 
 import com.example.pmchm.R;
 import com.example.pmchm.common.Constants;
-
+import com.example.pmchm.common.PreferencesUtils;
+import com.example.pmchm.utils.ToastUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class MainActivity extends BaseActivity {
 
@@ -28,6 +35,16 @@ public class MainActivity extends BaseActivity {
 			@Override
 			public View getView(int position, View convertView, ViewGroup parent) {
 				convertView = View.inflate(appContext, R.layout.item_main, null);
+				if (position == 1) {
+					TextView tv_title = (TextView) convertView.findViewById(R.id.tv_title);
+					TextView tv_catch_time = (TextView) convertView.findViewById(R.id.tv_catch_time);
+					TextView tv_pm25_value = (TextView) convertView.findViewById(R.id.tv_pm25_value);
+					TextView tv_co2_value = (TextView) convertView.findViewById(R.id.tv_co2_value);
+					tv_catch_time.setText("12:00");
+					tv_title.setText("南广场");
+					tv_pm25_value.setText("276");
+					tv_co2_value.setText("65.22%");
+				}
 				return convertView;
 			}
 
@@ -43,7 +60,7 @@ public class MainActivity extends BaseActivity {
 
 			@Override
 			public int getCount() {
-				return 2;
+				return 3;
 			}
 		});
 		list_item.setOnItemClickListener(new OnItemClickListener() {
@@ -54,16 +71,40 @@ public class MainActivity extends BaseActivity {
 			}
 		});
 	}
-	
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+
+		TextView tv_user_name = (TextView) findViewById(R.id.tv_user_name);
+
+		if (isLoad) {
+			String name = PreferencesUtils.getString(appContext, Constants.SP_NAME, Constants.SP_ACCOUNT_NAME);
+			if (!TextUtils.isEmpty(name)) {
+				tv_user_name.setText(name);
+			}
+		} else {
+			tv_user_name.setText("未登录");
+		}
+		httpUtils.send(HttpMethod.POST, Constants.URL_FRTCH, new RequestCallBack<String>() {
+
+			@Override
+			public void onSuccess(ResponseInfo<String> responseInfo) {
+				// TODO
+				System.out.println("onSuccess =" + responseInfo.result);
+			}
+
+			@Override
+			public void onFailure(HttpException error, String msg) {
+				// TOOD
+				System.out.println("onFailure =" + msg);
+			}
+		});
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
-		MenuItem menu_load = menu.findItem(R.id.menu_load);
-		if (menu_load != null && isLoad) {
-			menu_load.setVisible(false);
-		} else {
-			menu_load.setVisible(true);
-		}
 		return true;
 	}
 
@@ -75,18 +116,25 @@ public class MainActivity extends BaseActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		Intent intent;
-		if (item.getItemId() == R.id.menu_load) {
-			intent = new Intent(appContext, LoginActivity.class);
+		if (item.getItemId() == R.id.menu_refresh) {
+			ToastUtils.showToast(getApplicationContext(), "refresh", 0);
 		} else if (item.getItemId() == R.id.menu_my) {
 			intent = new Intent(appContext, MyActivity.class);
+			startActivity(intent);
 		} else {
 			intent = new Intent(appContext, SetingActivity.class);
+			startActivity(intent);
 		}
-		startActivity(intent);
 		return super.onOptionsItemSelected(item);
 	}
+
 	@Override
 	public int getActivityId() {
 		return Constants.AC_MAIN;
+	}
+
+	@Override
+	public int getActionBarIcon() {
+		return 0;
 	}
 }

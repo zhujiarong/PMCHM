@@ -8,11 +8,14 @@
     android:paddingRight="10dp">
    
     <LinearLayout
+        android:layout_marginLeft="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
         <TextView
+            android:textColor="@color/balk"
+            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
@@ -21,6 +24,7 @@
             android:textSize="20dp" />
 
         <TextView
+            android:id="@+id/tv_catch_time"
 			android:gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,6 +45,8 @@
             android:text="PM2.5"
             />
         <TextView
+             android:textColor="@color/balk"
+            android:id="@+id/tv_pm25_value"
             android:textSize="30dp" 
             android:text="26"
             android:layout_marginLeft="5dp"
@@ -54,6 +60,8 @@
             android:text="CO2"
             />
         <TextView 
+             android:textColor="@color/balk"
+            android:id="@+id/tv_co2_value"
             android:layout_marginLeft="5dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"

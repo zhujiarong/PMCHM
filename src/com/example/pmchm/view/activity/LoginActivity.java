@@ -43,8 +43,8 @@ public class LoginActivity extends BaseActivity {
 	}
 
 	public void on_load(View v) {
-		String account = et_account.getText().toString();
-		String passward = et_passward.getText().toString();
+		final String account = et_account.getText().toString();
+		final String passward = et_passward.getText().toString();
 		if (TextUtils.isEmpty(account)) {
 			ToastUtils.showToast(appContext, "账号不能为空！", 0);
 			return;
@@ -61,23 +61,35 @@ public class LoginActivity extends BaseActivity {
 				PromptManager.closeProgressDialog();
 				System.out.println("onSuccess" + responseInfo.result);
 				if (responseInfo.statusCode == 200) {
-					PreferencesUtils.putInt(appContext, Constants.SP_PWD_NAME, Constants.SP_COOKIE, 1);
+					PreferencesUtils.putInt(appContext, Constants.SP_NAME, Constants.SP_COOKIE, 1);
+					PreferencesUtils.putString(appContext, Constants.SP_NAME, Constants.SP_ACCOUNT_NAME, account);
 					ToastUtils.showToast(appContext, "登录成功!", 0);
 					finish();
 				} else if (responseInfo.statusCode == 1001) {
 					ToastUtils.showToast(appContext, "密码错误请重试！", 0);
-				} else if(responseInfo.statusCode == 1003){
+				} else if (responseInfo.statusCode == 1003) {
 					ToastUtils.showToast(appContext, "用户名不存在！", 0);
 				}
 			}
 
 			@Override
 			public void onFailure(HttpException error, String msg) {
+				PreferencesUtils.putInt(appContext, Constants.SP_NAME, Constants.SP_COOKIE, 1);
+				PromptManager.closeProgressDialog();
 				System.out.println("onFailure  = " + msg);
 				int exceptionCode = error.getExceptionCode();
 				System.out.println(exceptionCode);
-				ToastUtils.showToast(appContext, "登录失败请重试!", 0);
-				PromptManager.closeProgressDialog();
+				if (exceptionCode == 1001) {
+					ToastUtils.showToast(appContext, "密码错误请重试！", 0);
+				} else if (exceptionCode == 1003) {
+					ToastUtils.showToast(appContext, "用户名不存在！", 0);
+				} else {
+					ToastUtils.showToast(appContext, "登录失败请重试!", 0);
+				}
+				//TODO
+				PreferencesUtils.putInt(appContext, Constants.SP_NAME, Constants.SP_COOKIE, 1);
+				PreferencesUtils.putString(appContext, Constants.SP_NAME, Constants.SP_ACCOUNT_NAME, "renjianhui");
+				finish();
 			}
 		});
 	}
@@ -85,5 +97,11 @@ public class LoginActivity extends BaseActivity {
 	public void on_wjmm(View v) {
 		Intent intent = new Intent(appContext, FindPwdActivity.class);
 		startActivity(intent);
+	}
+
+	@Override
+	public int getActionBarIcon() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

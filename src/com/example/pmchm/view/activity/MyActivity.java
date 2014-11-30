@@ -27,11 +27,16 @@ public class MyActivity extends BaseActivity {
 	}
 
 	public void click3(View v) {
-		//TODO 关于
+		Intent intent = new Intent(appContext, AboutActivity.class);
+		startActivity(intent);
 	}
 
 	public void click4(View v) {
 		Intent intent = new Intent(appContext, UpdatePwdActivity.class);
+		startActivity(intent);
+	}
+	public void click5(View v) {
+		Intent intent = new Intent(appContext, SecretManagerActivity.class);
 		startActivity(intent);
 	}
 
@@ -43,5 +48,11 @@ public class MyActivity extends BaseActivity {
 	@Override
 	public int getActivityId() {
 		return Constants.AC_MY;
+	}
+
+	@Override
+	public int getActionBarIcon() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

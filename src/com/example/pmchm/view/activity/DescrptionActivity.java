@@ -1,11 +1,15 @@
 package com.example.pmchm.view.activity;
 
+import java.lang.reflect.Field;
+
 import com.example.pmchm.R;
 import com.example.pmchm.common.Constants;
 import com.example.pmchm.view.MainOptionAdapter;
 import com.example.pmchm.view.fragment.HrFragment;
 import com.example.pmchm.view.fragment.CoFragment;
 import com.example.pmchm.view.fragment.PmFragment;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -14,6 +18,9 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBar.TabListener;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.ViewConfiguration;
 
 public class DescrptionActivity extends BaseActivity implements TabListener {
 
@@ -23,13 +30,25 @@ public class DescrptionActivity extends BaseActivity implements TabListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		actionBar.setDisplayHomeAsUpEnabled(true);
-		actionBar.setDisplayShowHomeEnabled(false);
 		setContentView(R.layout.activity_dec);
 		pager = (ViewPager) findViewById(R.id.pager);
 		initData();
 		initTab();
 		setListener();
+		getOverflowMenu();
+	}
+
+	private void getOverflowMenu() {
+		try {
+			ViewConfiguration config = ViewConfiguration.get(this);
+			Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+			if (menuKeyField != null) {
+				menuKeyField.setAccessible(true);
+				menuKeyField.setBoolean(config, false);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -62,6 +81,34 @@ public class DescrptionActivity extends BaseActivity implements TabListener {
 		});
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.description, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		actionBar.setTitle(item.getTitle());
+//		switch (item.getItemId()) {
+//		case R.id.menu_des_1:
+//			break;
+//		case R.id.menu_des_2:
+//			
+//			break;
+//		case R.id.menu_des_3:
+//			
+//			break;
+//		case R.id.menu_des_4:
+//			
+//			break;
+//		case R.id.menu_des_5:
+//
+//			break;
+//		}
+		return super.onOptionsItemSelected(item);
+	}
+
 	/**
 	 * 初始化头部导航
 	 * 
@@ -70,6 +117,10 @@ public class DescrptionActivity extends BaseActivity implements TabListener {
 	private void initTab() {
 		String[] titles = getResources().getStringArray(R.array.option_name);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		actionBar.setIcon(getResources().getDrawable(R.drawable.jy_line_top));
+		actionBar.setDisplayShowHomeEnabled(true);
+		actionBar.setDisplayShowTitleEnabled(true);
+		actionBar.setDisplayHomeAsUpEnabled(true);
 		// 初始化tab
 		for (String title : titles) {
 			Tab tab = actionBar.newTab().setText(title);
@@ -101,5 +152,11 @@ public class DescrptionActivity extends BaseActivity implements TabListener {
 	@Override
 	public int getActivityId() {
 		return Constants.AC_PRESIDEN;
+	}
+
+	@Override
+	public int getActionBarIcon() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

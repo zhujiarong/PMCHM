@@ -6,6 +6,18 @@
         <item>PM2.5</item>
         <item>HR</item>
     </string-array>
+    <string-array name="main_list">
+        <item>总裁办公室</item>
+        <item>南广场</item>
+        <item>天安门</item>
+        <item>老外滩</item>
+    </string-array>
+    <string-array name="average_list">
+        <item>今天</item>
+        <item>近7日</item>
+        <item>近一个月</item>
+        <item>近一个年</item>
+    </string-array>
     <string-array name="repeat_period">
         <item>无</item>
         <item>日</item>
@@ -18,34 +30,35 @@
         <item>本月</item>
         <item>所有</item>
     </string-array>
-	<string-array name="max_time">
-	    <item >半个月</item>
-	    <item >一个月</item>
-	    <item >二个月</item>
-	    <item >三个月</item>
-	    <item >四个月</item>
-	    <item >五个月</item>
-	    <item >六个月</item>
-	    <item >七个月</item>
-	    <item >八个月</item>
-	    <item >九个月</item>
-	    <item >十个月</item>
-	    <item >十一个月</item>
-	    <item >十二个月</item>
-	</string-array>    
-	<string-array name="limit_time">
-	    <item >半小时</item>
-	    <item >一小时</item>
-	    <item >二小时</item>
-	    <item >三小时</item>
-	    <item >四小时</item>
-	    <item >五小时</item>
-	    <item >六小时</item>
-	    <item >七小时</item>
-	    <item >八小时</item>
-	    <item >九小时</item>
-	    <item >十小时</item>
-	    <item >十一小时</item>
-	    <item >十二小时</item>
-	</string-array>
+    <string-array name="max_time">
+        <item>半个月</item>
+        <item>一个月</item>
+        <item>二个月</item>
+        <item>三个月</item>
+        <item>四个月</item>
+        <item>五个月</item>
+        <item>六个月</item>
+        <item>七个月</item>
+        <item>八个月</item>
+        <item>九个月</item>
+        <item>十个月</item>
+        <item>十一个月</item>
+        <item>十二个月</item>
+    </string-array>
+    <string-array name="limit_time">
+        <item>半小时</item>
+        <item>一小时</item>
+        <item>二小时</item>
+        <item>三小时</item>
+        <item>四小时</item>
+        <item>五小时</item>
+        <item>六小时</item>
+        <item>七小时</item>
+        <item>八小时</item>
+        <item>九小时</item>
+        <item>十小时</item>
+        <item>十一小时</item>
+        <item>十二小时</item>
+    </string-array>
+
 </resources>

@@ -8,17 +8,16 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
 
-     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    
+
     <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.pmchm.view.activity.MainActivity"
-            android:label="@string/app_name" >
+            android:icon="@drawable/icon" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,6 +25,10 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.pmchm.view.activity.SetGestureActivity" >
+        </activity>
+        <activity android:name="com.example.pmchm.view.activity.AverageActivity" >
+        </activity>
+        <activity android:name="com.example.pmchm.view.activity.AboutActivity" >
         </activity>
         <activity android:name="com.example.pmchm.view.activity.FindPwdActivity" >
         </activity>
@@ -43,9 +46,11 @@
         </activity>
         <activity android:name="com.example.pmchm.view.activity.LoginActivity" >
         </activity>
-        <activity
-            android:name="com.example.pmchm.view.activity.SecretManagerActivity"
-            android:label="@string/title_activity_secret_manager" >
+        <activity android:name="com.example.pmchm.view.activity.VerificationOfNineBoxActivity" >
+        </activity>
+        <activity android:name="com.example.pmchm.view.activity.VerificationOfNumActivity" >
+        </activity>
+        <activity android:name="com.example.pmchm.view.activity.SecretManagerActivity" >
         </activity>
     </application>
 

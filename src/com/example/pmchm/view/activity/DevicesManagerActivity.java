@@ -43,7 +43,7 @@ public class DevicesManagerActivity extends BaseActivity {
 			}
 		});
 	}
-
+	
 	@Override
 	public String getActionBarTitle() {
 		return "设备管理";
@@ -52,5 +52,11 @@ public class DevicesManagerActivity extends BaseActivity {
 	@Override
 	public int getActivityId() {
 		return Constants.AC_DEVICES_MANAGER;
+	}
+
+	@Override
+	public int getActionBarIcon() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

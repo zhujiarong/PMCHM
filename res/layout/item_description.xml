@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_des_botton"
+    android:layout_width="fill_parent"
+    android:layout_height="80dp"
+    android:layout_below="@id/v_line_2"
+    android:gravity="center_vertical"
+    android:padding="10dp" >
+
+    <ImageView
+        android:id="@+id/iv_bad"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/add_item" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/iv_bad"
+        android:text="星期一"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tv_title_pm2.5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_date"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/iv_bad"
+        android:text="PM2.5"
+        android:textColor="@color/gray_self" />
+
+    <TextView
+        android:id="@+id/tv_pm2.5_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_date"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/tv_title_pm2.5"
+        android:text="20" />
+
+    <TextView
+        android:id="@+id/tv_title_hr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_date"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/tv_pm2.5_value"
+        android:text="HR"
+        android:textColor="@color/gray_self" />
+
+    <TextView
+        android:id="@+id/tv_hr_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_date"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/tv_title_hr"
+        android:text="309" />
+
+    <TextView
+        android:id="@+id/tv_title_co2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_date"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/tv_hr_value"
+        android:text="CO2"
+        android:textColor="@color/gray_self" />
+
+    <TextView
+        android:id="@+id/tv_co2_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_date"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/tv_title_co2"
+        android:text="24" />
+
+    <TextView
+        android:id="@+id/tv_title_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="256"
+        android:textSize="30dp" />
+
+</RelativeLayout>

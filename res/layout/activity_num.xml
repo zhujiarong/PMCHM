@@ -5,16 +5,35 @@
     android:orientation="vertical"
     tools:context="${packageName}.${activityClass}" >
 
-    <EditText
-        android:id="@+id/et_num1"
+    <LinearLayout
+        android:id="@+id/ll_pass"
         android:layout_width="fill_parent"
-        android:layout_height="60dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:hint="请输入4位数字密码!"
-        android:inputType="numberPassword"
-        android:maxLength="4" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal" 
+        android:orientation="horizontal" >
+
+        <com.example.pmchm.ui.PasswordTextView
+            android:id="@+id/et_pwd1"
+            style="@style/style_edit" />
+
+        <com.example.pmchm.ui.PasswordTextView
+            android:id="@+id/et_pwd2"
+            style="@style/style_edit"
+            android:layout_marginLeft="15dp" />
+
+        <com.example.pmchm.ui.PasswordTextView
+            android:id="@+id/et_pwd3"
+            style="@style/style_edit"
+            android:layout_marginLeft="15dp" />
+
+        <com.example.pmchm.ui.PasswordTextView
+            android:id="@+id/et_pwd4"
+            style="@style/style_edit"
+            android:layout_marginLeft="15dp" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_prompt"
@@ -22,14 +41,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
+        android:text="@string/title_input_secret"
         android:onClick="click1" />
 
-    <Button
+    <!-- 数字键盘 -->
+
+    <com.example.pmchm.ui.NumericKeyboard
+        android:id="@+id/nk"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
-        android:onClick="click2"
-        android:text="确定" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

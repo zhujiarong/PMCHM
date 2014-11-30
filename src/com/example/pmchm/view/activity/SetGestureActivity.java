@@ -5,6 +5,8 @@ import com.example.pmchm.common.Constants;
 import com.example.pmchm.common.PreferencesUtils;
 import com.example.pmchm.ui.NinePointLineView;
 import com.example.pmchm.ui.NinePointLineView.OnGestureListener;
+import com.example.pmchm.utils.ToastUtils;
+
 import android.os.Bundle;
 import android.content.Intent;
 import android.text.TextUtils;
@@ -61,11 +63,9 @@ public class SetGestureActivity extends BaseActivity {
 			refreshView();
 		} else {
 			if (fristSetPwd.equals(pwd)) {
-				PreferencesUtils.putString(getApplicationContext(), Constants.SP_PWD_NAME, Constants.SP_PWD, pwd);
-				PreferencesUtils.putInt(getApplicationContext(), Constants.SP_PWD_NAME, Constants.SP_VER_MODE, 0);
-				Intent intent = new Intent(getApplicationContext(), DescrptionActivity.class);
-				startActivity(intent);
+				PreferencesUtils.putString(getApplicationContext(), Constants.SP_NAME, Constants.SP_PWD_GES, pwd);
 				is_second_error = false;
+				ToastUtils.showToast(appContext, "设置成功", 0);
 				finish();
 			} else {
 				is_second_error = true;
@@ -82,6 +82,12 @@ public class SetGestureActivity extends BaseActivity {
 
 	@Override
 	public int getActivityId() {
-		return Constants.AC_GESTURE;
+		return Constants.AC_SET_GESTURE;
+	}
+
+	@Override
+	public int getActionBarIcon() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

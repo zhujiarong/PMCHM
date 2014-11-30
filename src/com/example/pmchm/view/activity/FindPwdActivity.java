@@ -30,4 +30,10 @@ public class FindPwdActivity extends BaseActivity {
 		// TODO 提交邮箱 找回密码
 	}
 
+	@Override
+	public int getActionBarIcon() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

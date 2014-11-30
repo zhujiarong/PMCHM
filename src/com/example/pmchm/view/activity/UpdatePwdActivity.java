@@ -30,4 +30,10 @@ public class UpdatePwdActivity extends BaseActivity {
 		return Constants.AC_UPDATE_PWD;
 	}
 
+	@Override
+	public int getActionBarIcon() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

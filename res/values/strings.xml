@@ -8,5 +8,25 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="str_laoding">正在加载数据</string>
+    <string name="about_we">PMCHN\n       0.1.0 bate\n\n捷径互联\n       致力于O2O的空气、水质监控云端解决方案</string>
 
+    
+    <!-- 数字按键 -->
+	<string name="zero">0</string>
+	<string name="one">1</string>
+	<string name="two">2</string>
+	<string name="three">3</string>
+	<string name="four">4</string>
+	<string name="five">5</string>
+	<string name="six">6</string>
+	<string name="seven">7</string>
+	<string name="eight">8</string>
+	<string name="neigh">9</string>
+	
+    <!-- 描述数字键盘按下 -->
+    <string name="numeric_keyboard_down">numeric keyboard down</string>
+	<!-- 描述数字键盘弹起 -->
+	<string name="numeric_keyboard_up">numeric keyboard up</string>
+	<!-- 描述数字键盘取消 -->
+	<string name="numeric_keyboard_cancel">numeric keyboard cancel</string>
 </resources>
