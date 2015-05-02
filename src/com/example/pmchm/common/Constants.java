@@ -2,13 +2,16 @@ package com.example.pmchm.common;
 
 public interface Constants {
 
-	String SP_VER_MODE = "verificationMode";
 	String SP_NAME = "sp_secret";
+	String SP_VER_MODE = "verificationMode";
 	String SP_PWD_NUM = "passward_num";
 	String SP_PWD_GES = "passward_ges";
 	String SP_COOKIE = "cookie";
 	String SP_ACCOUNT_NAME = "login_name";
 	String SP_ACCOUNT_PWD = "login_pwd";
+	String SP_HUANBAOJU = "seting_huanbaoju";
+	String SP_US_EMBASSY = "seting_us_embassy";
+	String SP_ALARM = "seting_alarms";
 
 	int VERIFICATION_NUM = 0;
 	int VERIFICATION_GES = 1;
@@ -29,5 +32,8 @@ public interface Constants {
 
 	// 接口
 	String URL_LOGIN = "http://www.pmchn.com:3000/api/login";
-	String URL_FRTCH = "http://www.pmchn.com:3000/api/dtus";
+	String URL_LOGOUT= "http://www.pmchn.com:3000/api/logout";
+	String URL_DEVICES = "http://www.pmchn.com:3000/api/devices";
+	String URL_DATA = "http://www.pmchn.com:3000/api/dtus";
+	String URL_SYNC = " http://www.pmchn.com:3000/api/sync";
 }

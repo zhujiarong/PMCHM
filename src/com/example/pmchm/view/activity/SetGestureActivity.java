@@ -25,6 +25,8 @@ public class SetGestureActivity extends BaseActivity {
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_gesture);
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setDisplayShowHomeEnabled(false);
 		nv = new NinePointLineView(SetGestureActivity.this, true);
 		nv.setOnGestureListener(new OnGestureListener() {
 			@Override

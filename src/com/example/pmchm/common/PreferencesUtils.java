@@ -1,9 +1,6 @@
 package com.example.pmchm.common;
 
 import java.util.Map;
-import java.util.Set;
-
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -24,14 +21,19 @@ public class PreferencesUtils {
 		SharedPreferences sp = context.getSharedPreferences(DEFAULT_SPNAME, Context.MODE_PRIVATE);
 		return sp.edit().putBoolean(key, value).commit();
 	}
-	// 保存string类型数据
+	// 保存boolean类型数据
 	public static boolean putBoolean(Context context,String apName, String key, boolean value) {
 		SharedPreferences sp = context.getSharedPreferences(apName, Context.MODE_PRIVATE);
 		return sp.edit().putBoolean(key, value).commit();
 	}
-	// 保存string类型数据
+	// 获取boolean类型数据
 	public static boolean getBoolean(Context context,String apName, String key, boolean value) {
 		SharedPreferences sp = context.getSharedPreferences(apName, Context.MODE_PRIVATE);
+		return sp.getBoolean(key, value);
+	}
+	// 获取boolean类型数据
+	public static boolean getBoolean(Context context, String key, boolean value) {
+		SharedPreferences sp = context.getSharedPreferences(DEFAULT_SPNAME, Context.MODE_PRIVATE);
 		return sp.getBoolean(key, value);
 	}
 	

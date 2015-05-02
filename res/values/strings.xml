@@ -8,7 +8,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="str_laoding">正在加载数据</string>
-    <string name="about_we">PMCHN\n       0.1.0 bate\n\n捷径互联\n       致力于O2O的空气、水质监控云端解决方案</string>
+    <string name="about_version">版本号： v0.1.0 Beta</string>
+    <string name="about_declare1">捷径互联，致力于O2O的空气</string>
+    <string name="about_declare2">水质云端监控和解决方案</string>
 
     
     <!-- 数字按键 -->

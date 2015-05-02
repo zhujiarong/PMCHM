@@ -1,8 +1,12 @@
 package com.example.pmchm.view.activity;
 
+import java.util.List;
 import com.example.pmchm.R;
+import com.example.pmchm.bean.MainInfo;
 import com.example.pmchm.common.Constants;
 import com.example.pmchm.utils.ToastUtils;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
@@ -20,7 +24,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class MainActivity extends BaseActivity implements OnClickListener{
+public class MainActivity extends BaseActivity implements OnClickListener {
 
 	private ListView list_item;
 
@@ -35,6 +39,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		View header_office = View.inflate(getApplicationContext(), R.layout.header_main_office, null);
 		header_office.findViewById(R.id.ll_main_header_office).setOnClickListener(this);
 		list_item.addHeaderView(header_office);
+
 		list_item.setAdapter(new BaseAdapter() {
 
 			@Override
@@ -81,16 +86,20 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 	protected void onStart() {
 		super.onStart();
 		if (isLoad) {
-			//TODO 登录
-		}else{
-			//TODO 未登录
+			// TODO 登录
+		} else {
+			// TODO 未登录
 		}
-		httpUtils.send(HttpMethod.POST, Constants.URL_FRTCH, new RequestCallBack<String>() {
+		httpUtils.send(HttpMethod.POST, Constants.URL_DATA, new RequestCallBack<String>() {
 
 			@Override
 			public void onSuccess(ResponseInfo<String> responseInfo) {
 				// TODO
 				System.out.println("onSuccess =" + responseInfo.result);
+				Gson json = new Gson();
+				List<MainInfo> mainInfos = json.fromJson(responseInfo.result, new TypeToken<List<MainInfo>>() {
+				}.getType());
+				System.out.println(mainInfos);
 			}
 
 			@Override
@@ -139,15 +148,13 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.ll_main_header_load:
+		int id = v.getId();
+		if (id == R.id.ll_main_header_load) {
 			ToastUtils.showToast(getApplicationContext(), "点击登录", 0);
-			break;
-		case R.id.ll_main_header_office:
+			Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+			startActivity(intent);
+		} else if (id == R.id.ll_main_header_office) {
 			ToastUtils.showToast(getApplicationContext(), "点击环保局", 0);
-			break;
-		default:
-			break;
 		}
 	}
 }
