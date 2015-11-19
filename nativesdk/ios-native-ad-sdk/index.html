@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../favicon.ico">
+        
+
+        <title>iOS Native Ad SDK - Domob Developer Guides</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Domob Developer Guides</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ad SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../adsdk/ios-ad-sdk">iOS Ad SDK</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../adsdk/android-ad-sdk">Android Ad SDK</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Native Ad SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../native-default">Native Ad Information</a>
+                            </li>
+                        
+                            <li class="active">
+                                <a href=".">iOS Native Ad SDK</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../android-native-ad-sdk">Android Native Ad SDK</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">DBox SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../dboxsdk/about-dbox-sdk">About DBox</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../dboxsdk/ios-dbox-sdk">iOS DBox SDK</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../dboxsdk/android-dbox-sdk">Android DBox SDK</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">如何... <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../howto/how-to-get-ids">如何获得PublisherId和PlacementID</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                
+                <li>
+                    <a href="https://github.com/Domob-SDK">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#native-ad">Native Ad</a></li>
+        
+            <li><a href="#dmnativead">DMNativeAd的后台设置</a></li>
+        
+            <li><a href="#dmnativead_1">DMNativeAd的添加</a></li>
+        
+            <li><a href="#dmnativead_2">DMNativeAd的释放</a></li>
+        
+            <li><a href="#dmnativeaddelegate">DMNativeAdDelegate</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="native-ad">Native Ad</h1>
+<h2 id="dmnativead">DMNativeAd的后台设置</h2>
+<ul>
+<li>参考<a href="../native-default">Native Ad Information</a></li>
+</ul>
+<h2 id="dmnativead_1">DMNativeAd的添加</h2>
+<p>若要在应用中添加一个原生广告（Native Ad），只需要简单的几步：</p>
+<ol>
+<li>导入<code>DMNativeAd.h</code>头文件。</li>
+<li>声明一个<code>DMNativeAd</code>的实例。</li>
+<li>使您的UIViewController实现<code>DMNativeAdDelegate</code>协议。</li>
+<li>在您的UIViewController的m文件中，使用您从多盟官网获得的Publisher ID和 Placement ID还有<code>rootViewController</code>以及<code>delegate</code>来初始化DMNativeAd。</li>
+<li>在合适的时候,调用loadAd方法,来加载Native广告。</li>
+<li>从Success的回调中获取提供的广告信息的数据模型。</li>
+<li>将广告信息展现到界面,并调用 trackImpression 方法,发送展现报告。</li>
+<li>对于广告提供的点击事件需要调用 processClickAction 方法,处理该事件。</li>
+</ol>
+<p>下面的代码片段，简单描述了这个过程：</p>
+<pre><code>@interface NativeAdViewController : UIViewController&lt;DMNativeAdDelegate&gt;
+
+@property (nonatomic, retain) DMNativeAd *nativeAd;
+
+@end
+</code></pre>
+
+<pre><code>@implementation NativeAdViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self)
+    {
+    }
+    return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // 生成Native实例 并 请求广告
+    UIViewController *controller = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+
+    _nativeAd = [[DMNativeAd alloc] initWithPublisherId:DOMOB_PUBLISHERID
+                                            placementId:DOMOB_PLACEMENTID
+                                     rootViewController:controller
+                                               delegate:self];
+    [_nativeAd loadAd];
+
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+//加载下一条广告 和 加载广告都是调用同一个方法
+- (IBAction)nextNativeAd:(id)sender {
+    [_nativeAd loadAd];
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+
+     _nativeAd.delegate = nil;  // 释放Native广告对象前，请先将其delegate设置为nil
+    [_nativeAd release];        // 释放Native广告对象
+     _native = nil;
+
+} 
+
+#pragma mark -
+#pragma mark NativeAdDelegate
+
+- (void)dmNativeAdSuccessToLoadAd:(DMNativeAdModel *)adDataModel
+{
+//获取成功回调带过来的数据模型并渲染到界面 
+    [self.nativeTitle setText:adDataModel.adTitle];
+    [self.nativeBrief setText:adDataModel.adBrief];
+    [self.nativeDescription setText:adDataModel.adDescription];
+    [self.linkBtn setTitle:adDataModel.adActionText forState:UIControlStateNormal];
+    [self.imageIcon setImageURL:[NSURL URLWithString:adDataModel.adIcon.adUrl]];
+    [self.imageMedia setImageURL:[NSURL URLWithString:adDataModel.adMedia.adUrl]];
+
+    //星级 对应程序中 adRatings 字段 返回数值为[0,100],请开发者自行计算要对 应显示的星级,示例:只想展示 1-5 星,允许小数,若返回值为 25, 则 25/20 = 1.25 , 则界面显示 1.25 星
+    [self.ratingLabel setText:[NSString stringWithFormat:@&quot;%lu&quot;,(unsigned long)adDataModel.adRatings]];
+
+    //安装包大小对应程序中adSize字段返回数值为[0,+∞),单位为Byte
+    [self.sizeLabel setText:[NSString stringWithFormat:@&quot;%lu&quot;,(unsigned long)adDataModel.adSize]];
+
+    //下载次数 对应程序中 adDownloads 字段返回值为[0, +∞)
+    [self.downloadLabel setText:[NSString stringWithFormat:@&quot;%lu&quot;,(unsigned long)adDataModel.adDownloads]];
+
+}
+
+- (void)dmNativeAdFailToLoadAdWithError:(NSError *)error
+{
+     NSLog(@&quot;&lt;DMNative Ad error = %@&gt;&quot;,error);
+}
+
+
+</code></pre>
+
+<h2 id="dmnativead_2">DMNativeAd的释放</h2>
+<p>在这里强烈建议您，在释放DMNativeAd之前，将DMNativeAd的属性<code>delegate</code>和<code>rootViewController</code>设置为nil。如下例：</p>
+<pre><code>- (void)viewDidUnload
+{
+    [super viewDidUnload];
+
+     _nativeAd.delegate = nil;  // 释放Native广告对象前，请先将其delegate设置为nil
+    [_nativeAd release];        // 释放Native广告对象
+     _native = nil;
+
+} 
+</code></pre>
+
+<h2 id="dmnativeaddelegate">DMNativeAdDelegate</h2>
+<p>您可以通过实现<code>DMNativeAdDelegate</code>中定义的方法，来跟踪广告生命周期中的各个阶段。所有这些方法也都定义在<code>DMNativeAd</code>中，如下：</p>
+<pre><code>@protocol DMNativeAdDelegate &lt;NSObject&gt;
+
+@required
+
+- (void)dmNativeAdSuccessToLoadAd:(DMNativeAdModel *)adDataModel;
+
+- (void)dmNativeAdFailToLoadAdWithError:(NSError *)error;
+
+@end
+</code></pre>
+
+</div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>© 2014 Domob</p>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

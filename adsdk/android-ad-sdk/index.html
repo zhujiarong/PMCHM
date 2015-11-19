@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../favicon.ico">
+        
+
+        <title>Android Ad SDK - Domob Developer Guides</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Domob Developer Guides</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ad SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../ios-ad-sdk">iOS Ad SDK</a>
+                            </li>
+                        
+                            <li class="active">
+                                <a href=".">Android Ad SDK</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Native Ad SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../nativesdk/native-default">Native Ad Information</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../nativesdk/ios-native-ad-sdk">iOS Native Ad SDK</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../nativesdk/android-native-ad-sdk">Android Native Ad SDK</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">DBox SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../dboxsdk/about-dbox-sdk">About DBox</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../dboxsdk/ios-dbox-sdk">iOS DBox SDK</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../dboxsdk/android-dbox-sdk">Android DBox SDK</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">如何... <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../howto/how-to-get-ids">如何获得PublisherId和PlacementID</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                
+                <li>
+                    <a href="https://github.com/Domob-SDK">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#domob-android-ad-sdk">Domob Android Ad SDK</a></li>
+        
+            <li><a href="#_1">必要条件</a></li>
+        
+            <li><a href="#_2">注意</a></li>
+        
+            <li><a href="#sdk">获取SDK</a></li>
+        
+            <li><a href="#sdk_1">SDK的嵌入</a></li>
+        
+            <li><a href="#banner-ad">使用横幅广告（Banner Ad）</a></li>
+        
+            <li><a href="#_4">横幅广告的尺寸</a></li>
+        
+            <li><a href="#interstitial-ad">使用插屏广告（Interstitial Ad）</a></li>
+        
+            <li><a href="#feeds-ad">使用信息流广告（Feeds Ad）</a></li>
+        
+            <li><a href="#splash-ad">使用开屏广告（Splash Ad）</a></li>
+        
+            <li><a href="#_7">获取示例</a></li>
+        
+            <li><a href="#_8">获得帮助</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="domob-android-ad-sdk">Domob Android Ad SDK</h1>
+<h2 id="_1">必要条件</h2>
+<ul>
+<li><code>Android 2.2</code>或更高版本</li>
+</ul>
+<h2 id="_2">注意</h2>
+<ul>
+<li>从3.3.0版本我们增加了广告位功能，SDK所有请求广告的接口参数都增加了广告位placementID，您需要去多盟官网手动生成placementID。</li>
+<li>从4.0.0开始，新增feeds广告类型，具体请参考文档中相关目录或通过sample查看效果。</li>
+<li>从4.3.0开始，插屏构造函数不再需要设置具体尺寸，如您是替换新版SDK发现原来插屏构造函数代码报错，请将尺寸参数删除即可。</li>
+<li>从4.5.0开始，对广告位的类名进行修改，比如：DomobAdView --&gt; AdView , 如您是替换新版SDK,请修改广告位的类名。</li>
+</ul>
+<h2 id="sdk">获取SDK</h2>
+<p>请前往多盟官网的<a href="http://www.domob.cn/developers/SDKdownload.htm">SDK下载页面</a>下载最新的SDK发行包。</p>
+<p><strong>注意：该页在登陆后才能访问。</strong></p>
+<h2 id="sdk_1">SDK的嵌入</h2>
+<p>1.将SDK的发行包（一个zip文件）解压缩，将libs目录下的domob_android_sdk.jar添加到项目中。</p>
+<p>2.将SDK需要的权限添加到<code>AndroidManifest.xml</code>清单文件中,所需的权限如下：</p>
+<pre><code>    &lt;!-- 网络访问权限 --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+    &lt;!-- 获取网络信息状态，如当前的网络连接是否有效 --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
+    &lt;!-- 读取手机状态 --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;
+    &lt;!-- 允许程序写入外部存储，如SD卡上写文件 --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
+    &lt;!-- 获取错略位置 --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot; /&gt;
+    &lt;!-- 获取WiFi状态 --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;
+    &lt;!-- 震动权限为可选权限，主要是品牌广告会用到，如果您没有添加，需要这些效果的品牌广告将不会投放到您的应用上 --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.VIBRATE&quot; /&gt;
+</code></pre>
+
+<p>3.将SDK需要的Activity声明添加到AndroidManifest.xml清单文件中，所需的Activity声明如下：</p>
+<pre><code>&lt;activity
+            android:name=&quot;cn.domob.android.ads.DmActivity&quot;
+            android:theme=&quot;@android:style/Theme.Translucent&quot; /&gt;
+</code></pre>
+
+<h2 id="banner-ad">使用横幅广告（Banner Ad）</h2>
+<p>若要在应用中添加一个横幅广告（Banner Ad），只需要简单的几步：</p>
+<p>1.准备好用于加载广告视图的ViewGroup(例如RelativeLayout)。</p>
+<p>2.使用您从多盟官网获得的Publisher ID和 Placement ID以及当前的Activity，来初始化一个<code>AdView</code>的实例。</p>
+<p>3.实现一个<code>AdEventListener</code>接口，并设置给<code>Adview</code>的实例。</p>
+<p>4.通过<code>AdView</code>的实例设置您期望的广告尺寸(此步骤可以省略，默认是Flexible banner，这也是我们推荐的)。</p>
+<p>5.通过<code>AdView</code>的实例设置可选参数，来提高广告投放的精准性。</p>
+<p>6.最后将<code>AdView</code>的实例添加到准备好的ViewGroup中。</p>
+<p>下面的代码片段，简要说明了这个过程：</p>
+<pre><code>public class BannerAdActivity extends Activity {
+    RelativeLayout mAdContainer;
+    AdView mAdview;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.banner);
+        mAdContainer = (RelativeLayout) findViewById(R.id.adcontainer);
+        // Create ad view
+        mAdview = new AdView(BannerAdActivity.this, 
+        DomobSampleActivity.PUBLISHER_ID,       DomobSampleActivity.InlinePPID);
+        mAdview.setAdSize(AdView.INLINE_SIZE_FLEXIBLE);
+        mAdview.setKeyword(&quot;game&quot;);
+        mAdview.setUserGender(&quot;male&quot;);
+        mAdview.setUserBirthdayStr(&quot;2000-08-08&quot;);
+        mAdview.setUserPostcode(&quot;123456&quot;);
+        mAdview.setAdEventListener(new AdEventListener() {
+            @Override
+            public void onAdOverlayPresented(AdView adView) {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;overlayPresented&quot;);
+            }
+            @Override
+            public void onAdOverlayDismissed(AdView adView) {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;Overrided be dismissed&quot;);
+            }
+            @Override
+            public void onAdClicked(AdView arg0) {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onDomobAdClicked&quot;);
+            }
+            @Override
+            public void onLeaveApplication(AdView arg0) {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onDomobLeaveApplication&quot;);
+            }
+            @Override
+            public Context onAdRequiresCurrentContext() {
+                return BannerAdActivity.this;
+            }
+            @Override
+            public void onAdFailed(AdView arg0, ErrorCode arg1) {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onDomobAdFailed&quot;);
+            }
+            @Override
+            public void onEventAdReturned(AdView arg0) {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onDomobAdReturned&quot;);
+            }
+        });
+        RelativeLayout.LayoutParams layout = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
+                LayoutParams.WRAP_CONTENT);
+        layout.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        mAdview.setLayoutParams(layout);
+        mAdContainer.addView(mAdview);
+    }
+}
+</code></pre>
+
+<h6 id="_3">适配横竖屏旋转的应用</h6>
+<p>当Activity添加属性<code>android:configChanges="orientation|keyboard|keyboardHidden"</code>,而且您设置的不是Flexible banner，这时您需要复写Activity的onConfigurationChanged方法，调用<code>AdView</code>的实例的<code>orientationChanged</code>方法，如下：</p>
+<pre><code>@Override
+public void onConfigurationChanged(Configuration configuration) {
+        super.onConfigurationChanged(configuration);
+        mAdview.orientationChanged();
+}
+</code></pre>
+
+<h2 id="_4">横幅广告的尺寸</h2>
+<p>目前我们所支持的横幅广告尺寸包括</p>
+<table>
+<thead>
+<tr>
+<th>Size（逻辑像素）</th>
+<th>Recommended</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>320x50</td>
+<td>android手机</td>
+</tr>
+<tr>
+<td>300x250</td>
+<td>android手机 android平板</td>
+</tr>
+<tr>
+<td>728x90</td>
+<td>android平板</td>
+</tr>
+<tr>
+<td>600x94</td>
+<td>android平板</td>
+</tr>
+<tr>
+<td>600x500</td>
+<td>android平板</td>
+</tr>
+<tr>
+<td>Flexible</td>
+<td>All Android Devices</td>
+</tr>
+</tbody>
+</table>
+<p><strong>我们强烈建议您使用Flexible Banner</strong>，它可以适应各种类型的设备，以及进行横竖屏的自适应（Flexible Banner的高度在Android手机上为<code>50</code>（逻辑像素），在平板上为<code>90</code>（逻辑像素），宽度自适应）。上例中所展示的也是使用Flexible Banner的方法。</p>
+<p>如果想使用固定尺寸的横幅广告，则可通过使用<code>AdView</code>的<code>setAdSize</code>方法来设置，在<code>AdView</code>也定义了广告尺寸的静态变量，如下：</p>
+<pre><code>mAdview.setAdSize(AdView.INLINE_SIZE_320X50);
+</code></pre>
+
+<p>展示的是使用<code>320x50</code>尺寸的横幅广告的方法。</p>
+<h2 id="interstitial-ad">使用插屏广告（Interstitial Ad）</h2>
+<p>插屏广告的使用，同样非常简单，只需要几步即可完成。但值得注意的是，插屏和横幅广告的使用是不同的，插屏广告在使用的时候要先调用<code>loadInterstitialAd</code>方法请求到广告，在合适的时机调用<code>showInterstitialAd</code>方法来展示插屏广告；在展示结束时通过<code>loadInterstitialAd</code>方法请求一次广告，便于在下次使用时直接通过<code>showInterstitialAd</code>方法来展示广告，减少一次广告请求时间。</p>
+<p>1.使用您从多盟官网获得的Publisher ID和 Placement ID以及当前的Activity，来初始化一个<code>InterstitialAd</code>的实例。</p>
+<p>2.实现一个<code>InterstitialAdListener</code>接口，并设置给<code>InterstitialAd</code>的实例。</p>
+<p>3.通过<code>InterstitialAd</code>的实例设置可选参数，来提高广告投放的精准性。</p>
+<p>4.在合适的时候，调用<code>loadInterstitialAd</code>方法，来预加载插屏广告。</p>
+<p>5.在合适的时候先调用<code>isInterstitialAdReady</code>方法检测是否加载完毕，再调用<code>showInterstitialAd</code>方法来呈现插屏广告。</p>
+<p>6.<code>注意</code>在呈现完成后，需要重新通过<code>loadInterstitialAd</code>方法，加载一条新广告，用于下次呈现。</p>
+<p>下面的代码片段，简单描述了这个过程：</p>
+<pre><code>public class InterstitialAdActivity extends Activity {
+
+    InterstitialAd mInterstitialAd;
+    Button mInterstitialBtn;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.interstital);
+        mInterstitialBtn = (Button) findViewById(R.id.interstitial);
+
+        mInterstitialAd = new InterstitialAd(this, DomobSampleActivity.PUBLISHER_ID,
+                DomobSampleActivity.InterstitialPPID);
+
+        mInterstitialAd.setInterstitialAdListener(new InterstitialAdListener() {
+            @Override
+            public void onInterstitialAdReady() {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onAdReady&quot;);
+            }
+
+            @Override
+            public void onLandingPageOpen() {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onLandingPageOpen&quot;);
+            }
+
+            @Override
+            public void onLandingPageClose() {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onLandingPageClose&quot;);
+            }
+
+            @Override
+            public void onInterstitialAdPresent() {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onInterstitialAdPresent&quot;);
+            }
+
+            @Override
+            public void onInterstitialAdDismiss() {
+                // Request new ad when the previous interstitial ad was closed.
+                mInterstitialAd.loadInterstitialAd();
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onInterstitialAdDismiss&quot;);
+            }
+
+            @Override
+            public void onInterstitialAdFailed(ErrorCode arg0) {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onInterstitialAdFailed&quot;);
+            }
+
+            @Override
+            public void onInterstitialAdLeaveApplication() {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onInterstitialAdLeaveApplication&quot;);
+
+            }
+
+            @Override
+            public void onInterstitialAdClicked(InterstitialAd arg0) {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onInterstitialAdClicked&quot;);
+            }
+        });
+
+        mInterstitialAd.loadInterstitialAd();
+        mInterstitialBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mInterstitialAd.isInterstitialAdReady()) {
+                    mInterstitialAd.showInterstitialAd(InterstitialAdActivity.this);
+                } else {
+                    Log.i(&quot;DomobSDKDemo&quot;, &quot;Interstitial Ad is not ready&quot;);
+                    mInterstitialAd.loadInterstitialAd();
+                }
+            }
+        });
+    }
+}
+</code></pre>
+
+<h2 id="feeds-ad">使用信息流广告（Feeds Ad）</h2>
+<p>feeds广告类型适合具有列表下拉刷新场景的应用添加，当用户为了更新内容，将列表下拉，用户手势松开的时机，在列表的顶部展示广告。</p>
+<p>信息流广告的使用，需要以下几步：</p>
+<p>1.请将自定义的ListView用LinearLayout包裹一层。</p>
+<pre><code>&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:id=&quot;@+id/adcontainer&quot;
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;fill_parent&quot;
+    android:orientation=&quot;vertical&quot; &gt;
+
+    &lt;cn.domob.ads.sample.MyListView
+        android:id=&quot;@+id/listView&quot;
+        android:layout_width=&quot;fill_parent&quot;
+        android:layout_height=&quot;wrap_content&quot; /&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre>
+
+<p>2.使用您从多盟官网获得的Publisher ID和 Placement ID以及当前的Activity，来初始化一个<code>FeedsAdView</code>的实例。</p>
+<p>3.实现一个<code>FeedsAdListener</code>接口，并设置给<code>FeedsAdView</code>的实例。</p>
+<p>4.通过<code>FeedsAdView</code>的实例设置可选参数，来提高广告投放的精准性。</p>
+<p>5.用包裹Listview的LinearLayout对象，通过addView(<code>FeedsAdView</code>, 0)的方式将FeedsAdView对象插入LinearLayout最前端。</p>
+<p>6.在合适的时候，调用<code>loadFeedsAd</code>方法请求广告。</p>
+<p>7.在用户刷新列表内容时调用<code>showFeedsAd</code>方法来展示广告。</p>
+<p>8.在展示结束时通过<code>loadFeedsAd</code>方法请求下一次广告，便于在下次使用时直接通过<code>showFeedsAd</code>方法来展示广告，减少一次广告请求时间。</p>
+<h5 id="_5">注意</h5>
+<p>广告在展现期间被其它view遮挡时，请调用SDK提供的接口closeFeedsAd()关闭广告，广告声音会随之消失。</p>
+<p>下面的代码片段，简单描述了这个过程：</p>
+<pre><code>public class FeedsAdActivity extends Activity {
+    private Handler mHandler = new Handler(Looper.getMainLooper());
+    private LinkedList&lt;String&gt; mDataLinkedList;
+    private BaseAdapter mBaseAdapter;
+    private FeedsAdView mFeedsAdView;
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.feeds);
+        final LinearLayout parentLinearLayout = (LinearLayout) findViewById(R.id.adcontainer);
+        mFeedsAdView = new FeedsAdView(this,DomobSampleActivity.PUBLISHER_ID,DomobSampleActivity.FeedsPPID);
+        mFeedsAdView.setFeedsAdListener(new FeedsAdListener() {
+
+            @Override
+            public void onLandingPageOpen() {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onLandingPageOpen&quot;);
+            }
+
+            @Override
+            public void onLandingPageClose() {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onLandingPageClose&quot;);
+            }
+
+            @Override
+            public void onFeedsAdReady() {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onFeedsAdReady&quot;);
+            }
+
+            @Override
+            public void onFeedsAdPresent() {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onFeedsAdPresent&quot;);
+            }
+
+            @Override
+            public void onFeedsAdLeaveApplication() {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onFeedsAdLeaveApplication&quot;);
+            }
+
+            @Override
+            public void onFeedsAdFailed(ErrorCode code) {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onFeedsAdFailed&quot;);
+            }
+
+            @Override
+            public void onFeedsAdDismiss() {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onFeedsAdDismiss&quot;);
+                parentLinearLayout.invalidate();
+                mFeedsAdView.loadFeedsAd();
+            }
+
+            @Override
+            public void onFeedsAdClicked(FeedsAdView feedsAdView) {
+                Log.i(&quot;DomobSDKDemo&quot;, &quot;onFeedsAdClicked&quot;);
+            }
+        });
+        parentLinearLayout.addView(mFeedsAdView, 0);
+        mFeedsAdView.loadFeedsAd();
+
+        final MyListView listView = (MyListView) findViewById(R.id.listView);
+        listView.setonRefreshListener(new OnRefreshListener() {
+            public void onRefresh() {
+                if (mFeedsAdView.isFeedsAdReady()) {
+                    mFeedsAdView.showFeedsAd(FeedsAdActivity.this);
+                } else {
+                    mFeedsAdView.loadFeedsAd();
+                }
+                mHandler.postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        listView.onRefreshComplete();
+
+                    }
+                }, 2000);
+            }
+        });
+
+        mDataLinkedList = new LinkedList&lt;String&gt;();
+        for (int i = 0; i &lt; 10; i++) {
+            mDataLinkedList.add(String.valueOf(i));
+        }
+        mBaseAdapter = new BaseAdapter() {
+            public View getView(int position, View convertView, ViewGroup parent) {
+                convertView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item, null);
+                TextView textView = (TextView) convertView.findViewById(R.id.textView_item);
+                textView.setText(mDataLinkedList.get(position));
+                return convertView;
+            }
+
+            public long getItemId(int position) {
+                return position;
+            }
+
+            public Object getItem(int position) {
+                return mDataLinkedList.get(position);
+            }
+
+            public int getCount() {
+                return mDataLinkedList.size();
+            }
+        };
+        listView.setAdapter(mBaseAdapter);
+    }
+}
+</code></pre>
+
+<h2 id="splash-ad">使用开屏广告（Splash Ad）</h2>
+<p>开屏广告的使用场景是在App刚刚开启时，在SDK内分为<code>缓存开屏</code>和<code>实时开屏</code>两种。</p>
+<p>缓存开屏的加载机制为，本次加载，缓存本次的广告应答以及相关资源，下次开启时展现。</p>
+<p>实时开屏在每次开启时都会实时请求广告并加载和缓存资源，在超时时间前加载完成即自动展现。</p>
+<p>详细使用方法可见Sample中的SplashScreenActivity类中使用的示例代码。</p>
+<table>
+<thead>
+<tr>
+<th>开屏广告类型</th>
+<th>广告请求流程</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>缓存开屏</td>
+<td>当次缓存，下次展现。</td>
+<td>无需等待广告loading,体验好。</td>
+<td>填充到展现流失率较高。</td>
+</tr>
+<tr>
+<td>实时开屏</td>
+<td>当次加载，当次展现，超时放弃（超时时限开发者可设）。</td>
+<td>填充到展现流失率较低。</td>
+<td>用户需要短暂的等待。</td>
+</tr>
+</tbody>
+</table>
+<h5 id="_6">注意：</h5>
+<p>1、使用开屏广告前要确保您的应用有自己的开机画面，并且在开屏的界面上提供一个Layout作为开屏广告的容器。</p>
+<p>2、在开屏广告被关闭或展现完成需要自动关闭时，会回调onSplashDismiss/onRTSplashDismiss方法，通知开发者开屏被关闭。在这个方法中，强烈建议开发者进行开屏页面到主页面的跳转（即Activity跳转），这样给用户带来的是开屏到主屏的无缝切换体验。</p>
+<p>3、建议开发者在开屏界面的Activity中，通过onKeyDown方法，屏蔽开屏界面的返回键行为（KeyEvent.KEYCODE_BACK），以此来保证您的开屏和多盟的开屏广告正常显示完成。</p>
+<p>下面的代码片段，简单描述了这个过程：</p>
+<pre><code>public class SplashScreenActivity extends Activity {
+
+    SplashAd splashAd;
+    RTSplashAd rtSplashAd;
+    // 缓存开屏广告:true 实时开屏广告:false
+    // Cache splash ad:true Real-time splash ad:false
+    private boolean isSplash = false;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // 去掉Activity上面的状态栏
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        // 去掉标题栏
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.splash);
+
+        /**
+         * 
+         * SplashMode.SplashModeFullScreen 请求开屏广告的尺寸为全屏
+         * SplashMode.SplashModeSmallEmbed 请求开屏广告的尺寸不是全屏，根据设备分辨率计算出合适的小屏尺寸
+         * SplashMode.SplashModeBigEmbed
+         * 请求开屏广告的尺寸不是全屏，更具设备分辨率计算出合适的相对SmallMode的尺寸
+         * 
+         */
+        if (isSplash) {
+            // 缓存开屏广告
+            // Cache splash ad
+            splashAd = new SplashAd(this, DomobSampleActivity.PUBLISHER_ID, DomobSampleActivity.SplashPPID,
+                    SplashMode.SplashModeFullScreen);
+            // setSplashTopMargin is available when you choose non-full-screen
+            // splash mode.
+            // splashAd.setSplashTopMargin(200);
+            splashAd.setKeyword(&quot;game&quot;);
+            splashAd.setUserGender(&quot;male&quot;);
+            splashAd.setUserBirthdayStr(&quot;2000-08-08&quot;);
+            splashAd.setUserPostcode(&quot;123456&quot;);
+            splashAd.setSplashAdListener(new SplashAdListener() {
+                @Override
+                public void onSplashPresent() {
+                    Log.i(&quot;DomobSDKDemo&quot;, &quot;onSplashStart&quot;);
+                }
+
+                @Override
+                public void onSplashDismiss() {
+                    Log.i(&quot;DomobSDKDemo&quot;, &quot;onSplashClosed&quot;);
+                    // 开屏回调被关闭时，立即进行界面跳转，从开屏界面到主界面。
+                    // When splash ad is closed, jump to the next(main) Activity
+                    // immediately.
+                    jump();
+                    // 如果应用没有单独的闪屏Activity，需要调用closeSplash方法去关闭开屏广告
+                    // If you do not carry a separate advertising activity, you
+                    // need to call closeRTSplash way to close the splash ad
+                    // splashAd.closeSplash();
+                }
+
+                @Override
+                public void onSplashLoadFailed() {
+                    Log.i(&quot;DomobSDKDemo&quot;, &quot;onSplashLoadFailed&quot;);
+                }
+            });
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (splashAd.isSplashAdReady()) {
+                        splashAd.splash(SplashScreenActivity.this,
+                                SplashScreenActivity.this.findViewById(R.id.splash_holder));
+                    } else {
+                        Toast.makeText(SplashScreenActivity.this, &quot;Splash ad is NOT ready.&quot;,                                                Toast.LENGTH_SHORT).show();
+                        jump();
+                    }
+                }
+            }, 1);
+        } else {
+            // 实时开屏广告
+            // Real-time splash ad
+            rtSplashAd = new RTSplashAd(this,DomobSampleActivity.PUBLISHER_ID,DomobSampleActivity.SplashPPID,
+                    SplashMode.SplashModeFullScreen);
+            // setRTSplashTopMargin is available when you choose non-full-screen
+            // splash mode.
+            // rtSplashAd.setRTSplashTopMargin(200);
+            rtSplashAd.setKeyword(&quot;game&quot;);
+            rtSplashAd.setUserGender(&quot;male&quot;);
+            rtSplashAd.setUserBirthdayStr(&quot;2000-08-08&quot;);
+            rtSplashAd.setUserPostcode(&quot;123456&quot;);
+            rtSplashAd.setRTSplashAdListener(new RTSplashAdListener() {
+                @Override
+                public void onRTSplashDismiss() {
+                    Log.i(&quot;DomobSDKDemo&quot;, &quot;onRTSplashClosed&quot;);
+                    // 开屏回调被关闭时，立即进行界面跳转，从开屏界面到主界面。
+                    // When rtSplash ad is closed, jump to the next(main)
+                    // Activity immediately.
+                    jump();
+                    // 如果应用没有单独的闪屏Activity，需要调用closeRTSplash方法去关闭开屏广告
+                    // If you do not carry a separate advertising activity, you
+                    // need to call closeRTSplash way to close the splash ad
+
+                    // rtSplashAd.closeRTSplash();
+                }
+
+                @Override
+                public void onRTSplashLoadFailed() {
+                    Log.i(&quot;DomobSDKDemo&quot;, &quot;onRTSplashLoadFailed&quot;);
+                }
+
+                @Override
+                public void onRTSplashPresent() {
+                    Log.i(&quot;DomobSDKDemo&quot;, &quot;onRTSplashStart&quot;);
+                }
+
+            });
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    rtSplashAd.splash(SplashScreenActivity.this,
+                            SplashScreenActivity.this.findViewById(R.id.splash_holder));
+                }
+            //展现等待时间
+            }, 1);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(&quot;DomobSDKDemo&quot;, &quot;Splash onPause&quot;);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(&quot;DomobSDKDemo&quot;, &quot;Splash onDestroy&quot;);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // 屏蔽返回键/Back key disabled
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    private void jump() {
+        startActivity(new Intent(SplashScreenActivity.this, DomobSampleActivity.class));
+        finish();
+    }
+}
+</code></pre>
+
+<h2 id="_7">获取示例</h2>
+<p>我们的实例工程都托管在Github上</p>
+<ul>
+<li><a href="https://github.com/Domob-SDK/domob-android-ad-sdk-sample">Android Ad SDK 示例工程</a> 其中包括上述所有广告形式的使用方法。</li>
+</ul>
+<h2 id="_8">获得帮助</h2>
+<p>如还有疑问，欢迎随时发邮件到support@domob.cn获得更多帮助。</p>
+</div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>© 2014 Domob</p>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../favicon.ico">
+        
+
+        <title>iOS DBox SDK - Domob Developer Guides</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Domob Developer Guides</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ad SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../adsdk/ios-ad-sdk">iOS Ad SDK</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../adsdk/android-ad-sdk">Android Ad SDK</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Native Ad SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../nativesdk/native-default">Native Ad Information</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../nativesdk/ios-native-ad-sdk">iOS Native Ad SDK</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../nativesdk/android-native-ad-sdk">Android Native Ad SDK</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">DBox SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../about-dbox-sdk">About DBox</a>
+                            </li>
+                        
+                            <li class="active">
+                                <a href=".">iOS DBox SDK</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../android-dbox-sdk">Android DBox SDK</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">如何... <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../howto/how-to-get-ids">如何获得PublisherId和PlacementID</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                
+                <li>
+                    <a href="https://github.com/Domob-SDK">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#domob-dbox-sdk">Domob DBox SDK</a></li>
+        
+            <li><a href="#_1">关于多宝屋</a></li>
+        
+            <li><a href="#_2">必要条件</a></li>
+        
+            <li><a href="#sdk">获取SDK</a></li>
+        
+            <li><a href="#_3">配置通用参数</a></li>
+        
+            <li><a href="#_4">目录结构和文件组织</a></li>
+        
+            <li><a href="#sdk_1">SDK的使用方式和步骤</a></li>
+        
+            <li><a href="#sdk_2">SDK模版嵌入方式</a></li>
+        
+            <li><a href="#_8">注意事项</a></li>
+        
+            <li><a href="#_9">审核注意事项</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="domob-dbox-sdk">Domob DBox SDK</h1>
+<h2 id="_1">关于多宝屋</h2>
+<ul>
+<li>请参见 <a href="../about-dbox-sdk">About DBox</a></li>
+</ul>
+<h2 id="_2">必要条件</h2>
+<ul>
+<li><code>Xcode 6</code>或更高版本</li>
+<li><code>iOS 5.0</code>或更高版本</li>
+</ul>
+<h2 id="sdk">获取SDK</h2>
+<p>请发送邮件到 <a href="mailto:support-dbox@domob.cn">support-dbox@domob.cn</a> 获取最新的 iOS DBox SDK 发行包。</p>
+<h2 id="_3">配置通用参数</h2>
+<p>1 编译参数：多宝屋 SDK 同时支持 ARC/Non-ARC 编译选项。主要是在代码中使用 DOARCMarcos 来加以
+控制。</p>
+<pre><code>
+- (void)doEntryClick
+{
+    if (dboxManager) {
+        [dboxManager sendAdEntryClickReport];
+    }
+}
+
+- (void)doEntryImpression
+{
+    if (dboxManager) {
+        [dboxManager sendAdEntryImpressionReport];
+    }
+}
+
+- (void)dealloc
+{
+    DO_SAFE_ARC_RELEASE(_adChannelInfos);
+    DO_SAFE_ARC_RELEASE(_adCreativeInfos);
+    DO_SAFE_ARC_RELEASE(_adControlInfo);
+
+    DO_SAFE_ARC_RELEASE(dboxManager);
+    DO_SAFE_ARC_RELEASE(preloadButton);
+
+    DO_SAFE_ARC_SUPER_DEALLOC();
+}
+
+</code></pre>
+
+<p>2 链接多宝屋 DBoxSDK framework</p>
+<p><center> <img alt="" src="../../assets/dboxsdk/ios-dboxsdk-framework.png" /> </center></p>
+<h2 id="_4">目录结构和文件组织</h2>
+<p>iOS 多宝屋SDK发行版本目录结构如下</p>
+<ul>
+<li>
+<p>SDK 文件</p>
+<ul>
+<li>
+<p>SDK framework：DBoxSDK.framework，包含多种架构，如，armv7, armv7s, arm64, i368, x86-64 等；
+Framework 中也包含了，</p>
+<ul>
+<li>
+<p>头文件：Header</p>
+</li>
+<li>
+<p>库：DBoxSDK
+<center> <img alt="" src="../../assets/dboxsdk/ios-dboxsdk-header.png" /> </center></p>
+</li>
+</ul>
+</li>
+<li>
+<p>UI 图片资源包，DBox.bundle
+<center> <img alt="" src="../../assets/dboxsdk/ios-dboxsdk-bundle.png" /> </center></p>
+</li>
+<li>
+<p>开发者文档：DBoxSDKDeveloperGuide.pdf</p>
+</li>
+</ul>
+</li>
+<li>
+<p>SDK Demo项目</p>
+</li>
+</ul>
+<p><center> <img alt="" src="../../assets/dboxsdk/ios-dboxsdk-demo.png" /> </center></p>
+<ul>
+<li>
+<p>SDK 重要头文件介绍</p>
+<ul>
+<li>
+<p>数据相关的头文件</p>
+<ul>
+<li>DBoxManager.h
+<center> <img alt="" src="../../assets/dboxsdk/ios-dboxsdk-dboxmanager.png" /> </center>
+    DBoxManager 是一个重要的入口类。它主要负责从服务器请求广告数据，并管理对请求广告数据的缓存等。DBoxManager 支持多个广告位，也就是说，开发者可以用多个的广告位 ID 来请求多组广告数据，并且用广告位ID从DBoxManager获取对应的广告数据。</li>
+</ul>
+</li>
+<li>
+<p>工具相关的头文件</p>
+<ul>
+<li>DOARCMacros 定义了一组 ARC/Non-ARC 相关的宏，使用这些宏而无需关注项目是 ARC，还是 Non-ARC。
+<center> <img alt="" src="../../assets/dboxsdk/ios-dboxsdk-macros.png" /> </center></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="sdk_1">SDK的使用方式和步骤</h2>
+<p>开发者可以使用 SDK 提供的模版 UI 和 Control 来展示多宝屋广告，可以节省一些界面开发的时间。效果如下，</p>
+<table>
+<thead>
+<tr>
+<th>入口</th>
+<th>主界面</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="../../assets/dboxsdk/ios-dboxsdk-demo-entry.png" /></td>
+<td><img alt="" src="../../assets/dboxsdk/ios-dboxsdk-demo-main.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>上面是 Demo 应用对模版的使用效果，当点击“加载数据”后，多宝屋模版入口即可弹出，并按照服务器后台设置的模式(如，平铺、卡片等)展现广告。
+模版的使用由一个重要的类DBoxManager提供接口，目前DBoxManager提供两种使用方式：</p>
+<h3 id="_5">方式一：预加载模式</h3>
+<p>下面就Demo为例，详细说明模版的使用步骤</p>
+<p>1   准备好申请的开发者ID(Publisher ID)和多宝屋的广告位 ID(Placement ID)，如，Demo中是将此ID放入在 AppDelegate中，</p>
+<pre><code>#import &lt;UIKit/UIKit.h&gt;
+
+#import &quot;DOARCMacros.h&quot;
+
+#define DBOX_PUBLISHER_ID_ONLINE @&quot;56OJw+rouN8xdhPaW9&quot;
+#define DBOX_PLACEMENT_ID_ONLINE @&quot;16TLuFnvAp2p4NU06al1hNgi&quot;
+
+@class DBoxHomeViewController;
+
+@interface DBoxAppDelegate : UIResponder &lt;UIApplicationDelegate&gt;
+
+@property (nonatomic, DO_STRONG) UIWindow *window;
+@property (nonatomic, DO_STRONG) UINavigationController *navController;
+@property (nonatomic, DO_STRONG) DBoxHomeViewController *rootController;
+@property (nonatomic, DO_STRONG) NSString *publisherId;
+@property (nonatomic, DO_STRONG) NSString *placementId;
+
+@end
+</code></pre>
+
+<pre><code>@implementation DBoxAppDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
+    self.rootController = DO_SAFE_ARC_AUTORELEASE([[DBoxHomeViewController alloc] init]);
+    self.navController = DO_SAFE_ARC_AUTORELEASE([[UINavigationController alloc] initWithRootViewController:self.rootController]);
+
+    self.window = DO_SAFE_ARC_AUTORELEASE([[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]);
+    [self.window setRootViewController:self.navController];
+
+    // Override point for customization after application launch.
+    [self.window setBackgroundColor:[UIColor whiteColor]];
+    [self.window makeKeyAndVisible];
+
+    [self setPublisherId:DBOX_PUBLISHER_ID_ONLINE];
+    [self setPlacementId:DBOX_PLACEMENT_ID_ONLINE];
+
+    return YES;
+}
+</code></pre>
+
+<p>2   声明 DBoxManager，并监听DBoxManagerDelegate。</p>
+<pre><code>@interface DBoxHomePopupView () &lt;UIGestureRecognizerDelegate, DBoxManagerDelegate&gt; {
+    DBoxManager *dboxManager;
+
+    UIButton *preloadButton;
+    UIButton *bannerRatioButton;
+}
+</code></pre>
+
+<p>3   确定何时请求网络数据。可以在你App界面的初始化阶段获取，也可以在某个按钮点击后获取。比如，Demo中是点击“加载数据”按钮后获取。
+此时，我们初始化 dboxManager实例，并设置dboxManager的delegate，然后调用preloadData向服务器请求数据。</p>
+<pre><code>- (void)handlePreloadButtonTapped:(id)sender
+{
+    DBoxAppDelegate *appDelegate = (DBoxAppDelegate *)[[UIApplication sharedApplication] delegate];
+
+    dboxManager = [[DBoxManager alloc] initWithPublisherId:appDelegate.publisherId placementId:appDelegate.placementId rootViewController:appDelegate.rootController];
+    [dboxManager setDelegate:self];
+
+//    [dboxManager setNavigationBarTintColor:[UIColor redColor]];
+//    [dboxManager setNavigationBarTintColorHexString:@&quot;5abc21&quot;];
+//    [dboxManager setNavigationBarBackgroundImageNamed:@&quot;bg_nav&quot;];
+
+    [dboxManager preloadData];
+
+    [self doEntryClick];
+}
+
+</code></pre>
+
+<p>4   在点击入口按钮后，发送入口点击报告，</p>
+<pre><code>- (void)doEntryClick
+{
+    if (dboxManager) {
+        [dboxManager sendAdEntryClickReport];
+    }
+}
+</code></pre>
+
+<p>5   在数据获取成功后，展示模版入口界面，</p>
+<pre><code>#pragma mark -
+#pragma mark - DBoxdboxManagerDelegate
+
+- (void)dboxDidFinishLoad
+{
+    [dboxManager presentEntryViewController];
+
+    [self doEntryImpression];
+}
+</code></pre>
+
+<p>获取获取成功后，此时所有的数据已经预加载完毕，那么我们可以根据需要，</p>
+<ul>
+<li><code>立刻调用</code>；</li>
+<li><code>也可以在其它方便的时候调用</code></li>
+</ul>
+<p>[dboxManager presentEntryController]来展示入口界面。</p>
+<p>6   在入口界面展示后，发送入口展现报告，</p>
+<pre><code>- (void)doEntryImpression
+{
+    if (dboxManager) {
+        [dboxManager sendAdEntryImpressionReport];
+    }
+}
+</code></pre>
+
+<p>7   DBoxManager 也提供了完备的回调机制，将重要的事件通知给 App，App可以根据需要来进行应对，包括，</p>
+<pre><code>@protocol DBoxManagerDelegate &lt;NSObject&gt;
+
+@optional
+//
+// 多宝屋数据请求完毕
+//
+- (void)dboxDidFinishLoad;
+
+//
+// 多宝屋数据请求失败
+// @param error 错误数据
+//
+- (void)dboxDidFailedLoadWithError:(NSError *)error;
+
+//
+// 多宝屋界面展现
+//
+- (void)dboxDidAdViewPresented;
+
+//
+// 多宝屋界面退出
+//
+- (void)dboxDidAdViewDismissed;
+
+//
+// 多宝屋界面进入后台
+//
+- (void)dboxDidAppEnterBackground;
+
+@end
+
+</code></pre>
+
+<p>如，Demo中对delegate的处理，</p>
+<pre><code>#pragma mark -
+#pragma mark - DBoxdboxManagerDelegate
+
+- (void)dboxDidFinishLoad
+{
+    [dboxManager presentEntryViewController];
+
+    [self doEntryImpression];
+}
+
+- (void)dboxDidFailedLoadWithError:(NSError *)error
+{
+    NSLog(@&quot;Failed to load:%@&quot;, error);
+}
+
+- (void)dboxDidAdViewPresented
+{
+    NSLog(@&quot;Ad view presented&quot;);
+}
+
+- (void)dboxDidAdViewDismissed
+{
+    NSLog(@&quot;Ad view dismissed&quot;);
+}
+
+- (void)dboxDidAppEnterBackground
+{
+    NSLog(@&quot;App enter background&quot;);
+}
+</code></pre>
+
+<h3 id="_6">方式二：直接展示模式</h3>
+<p>1   准备好申请的开发者ID(Publisher ID)和多宝屋的广告位 ID(Placement ID)，如，Demo中是将此ID放入在 AppDelegate中，</p>
+<pre><code>#import &lt;UIKit/UIKit.h&gt;
+
+#import &quot;DOARCMacros.h&quot;
+
+#define DBOX_PUBLISHER_ID_ONLINE @&quot;56OJw+rouN8xdhPaW9&quot;
+#define DBOX_PLACEMENT_ID_ONLINE @&quot;16TLuFnvAp2p4NU06al1hNgi&quot;
+
+@class DBoxHomeViewController;
+
+@interface DBoxAppDelegate : UIResponder &lt;UIApplicationDelegate&gt;
+
+@property (nonatomic, DO_STRONG) UIWindow *window;
+@property (nonatomic, DO_STRONG) UINavigationController *navController;
+@property (nonatomic, DO_STRONG) DBoxHomeViewController *rootController;
+@property (nonatomic, DO_STRONG) NSString *publisherId;
+@property (nonatomic, DO_STRONG) NSString *placementId;
+
+@end
+</code></pre>
+
+<pre><code>@implementation DBoxAppDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
+    self.rootController = DO_SAFE_ARC_AUTORELEASE([[DBoxHomeViewController alloc] init]);
+    self.navController = DO_SAFE_ARC_AUTORELEASE([[UINavigationController alloc] initWithRootViewController:self.rootController]);
+
+    self.window = DO_SAFE_ARC_AUTORELEASE([[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]);
+    [self.window setRootViewController:self.navController];
+
+    // Override point for customization after application launch.
+    [self.window setBackgroundColor:[UIColor whiteColor]];
+    [self.window makeKeyAndVisible];
+
+    [self setPublisherId:DBOX_PUBLISHER_ID_ONLINE];
+    [self setPlacementId:DBOX_PLACEMENT_ID_ONLINE];
+
+    return YES;
+}
+</code></pre>
+
+<p>2   声明 DBoxManager，并监听DBoxManagerDelegate。</p>
+<pre><code>@interface DBoxHomePopupView () &lt;UIGestureRecognizerDelegate, DBoxManagerDelegate&gt; {
+    DBoxManager *dboxManager;
+
+    UIButton *preloadButton;
+    UIButton *bannerRatioButton;
+}
+</code></pre>
+
+<p>3   立即请求网络数据，并展示入口界面，</p>
+<p>此时，我们调用initWithPublisherId:placementId:rootViewController初始化 dboxManager实例，并设置dboxManager的delegate。</p>
+<pre><code>- (void)handlePreloadButtonTapped:(id)sender
+{
+    DBoxAppDelegate *appDelegate = (DBoxAppDelegate *)[[UIApplication sharedApplication] delegate];
+
+    dboxManager = [[DBoxManager alloc] initWithPublisherId:appDelegate.publisherId placementId:appDelegate.placementId rootViewController:appDelegate.rootController];
+    [dboxManager setDelegate:self];
+
+//    [dboxManager setNavigationBarTintColor:[UIColor redColor]];
+//    [dboxManager setNavigationBarTintColorHexString:@&quot;5abc21&quot;];
+//    [dboxManager setNavigationBarBackgroundImageNamed:@&quot;bg_nav&quot;];
+
+    [dboxManager presentEntryViewController];
+
+    [self doEntryClick];
+}
+
+</code></pre>
+
+<p>4   在点击入口按钮后，发送入口点击报告，</p>
+<pre><code>- (void)doEntryClick
+{
+    if (dboxManager) {
+        [dboxManager sendAdEntryClickReport];
+    }
+}
+</code></pre>
+
+<p>5   在入口界面展示后，发送入口展现报告，</p>
+<pre><code>- (void)doEntryImpression
+{
+    if (dboxManager) {
+        [dboxManager sendAdEntryImpressionReport];
+    }
+}
+</code></pre>
+
+<h3 id="_7">备注</h3>
+<p>1   DBoxManager支持多个广告位，也就是说，我们可以用不同的广告位ID(Placement ID)来实例化多个DBoxManager；</p>
+<p>2   通过后台设置，我们也可以使不同广告位ID的DBoxManager展示不同模式的入口界面，即平铺模式和卡片模式；</p>
+<table>
+<thead>
+<tr>
+<th>平铺模式(flat)</th>
+<th>卡片模式(card)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="../../assets/dboxsdk/ios-dboxsdk-flat-entry.png" /></td>
+<td><img alt="" src="../../assets/dboxsdk/ios-dboxsdk-demo-main.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>3   DBoxManager 也提供了三个接口供用户修改导航栏颜色，分别是，</p>
+<pre><code>//
+//  设置导航栏颜色。
+//  @param barTintColor 颜色
+//
+- (void)setNavigationBarTintColor:(UIColor *)barTintColor;
+
+//
+//  设置导航栏颜色。
+//  @param barTintColorHexString 十六进制颜色字符串
+//
+- (void)setNavigationBarTintColorHexString:(NSString *)barTintColorHexString;
+
+//
+//  设置导航栏背景图。
+//  @param barBackgroundImageName 背景图的文件名
+//
+- (void)setNavigationBarBackgroundImageNamed:(NSString *)barBackgroundImageName;
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>红色导航栏</th>
+<th>绿色导航栏</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="../../assets/dboxsdk/ios-dboxsdk-navi-color01.png" /></td>
+<td><img alt="" src="../../assets/dboxsdk/ios-dboxsdk-navi-color02.png" /></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="sdk_2">SDK模版嵌入方式</h2>
+<p>SDK 附带的demo展示了三种SDK模版嵌入方式，分别是：</p>
+<p>1   固定&amp;弹出
+最常用也是最普通的方式，如，设定一个界面上的按钮作为多宝屋的入口，那么当点击某个按钮时，入口界面即弹出；</p>
+<table>
+<thead>
+<tr>
+<th>固定&amp;弹出</th>
+<th>主界面</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="../../assets/dboxsdk/ios-dboxsdk-demo-entry.png" /></td>
+<td><img alt="" src="../../assets/dboxsdk/ios-dboxsdk-demo-main.png" /></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>2   小把手&amp;弹出
+为节省界面空间，也可以用一个侧边把手来作为入口，当点击后，弹出入口界面。</p>
+<table>
+<thead>
+<tr>
+<th>小把手&amp;弹出</th>
+<th>主界面</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="../../assets/dboxsdk/ios-dboxsdk-demo-entry-handle.png" /></td>
+<td><img alt="" src="../../assets/dboxsdk/ios-dboxsdk-demo-main.png" /></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>3   嵌入式
+将多宝屋的界面融入您的app之中，使其自然成为app的一部分，</p>
+<table>
+<thead>
+<tr>
+<th>嵌入式</th>
+<th>主界面</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="../../assets/dboxsdk/ios-dboxsdk-demo-entry-embed.png" /></td>
+<td><img alt="" src="../../assets/dboxsdk/ios-dboxsdk-demo-main-embed.png" /></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>具体的使用请参见SDK所附带的demo程序。</p>
+<h2 id="_8">注意事项</h2>
+<p>多宝屋 iOS SDK集成注意事项：</p>
+<ol>
+<li>
+<p>Publisher ID 和 Placement ID 一定要用媒体自己申请的，不要用多宝屋Demo中的默认 ID；</p>
+</li>
+<li>
+<p>发送入口点击报告</p>
+</li>
+<li>
+<p>发送入口展现报告：</p>
+</li>
+</ol>
+<p>请您在集成完毕后务必逐一核查以上各项。保证各项的正确性，以免影响收入。</p>
+<h2 id="_9">审核注意事项</h2>
+<p>1 由于多宝屋 SDK 获取了 IDFA，那么在提交 App Store 审核时，请按照下面的截图选择 IDFA 相关的选项。</p>
+<p><center> <img alt="" src="../../assets/dboxsdk/ios-dboxsdk-idfa.png" /> </center></p>
+<p>2 若以上选择仍然不能通过审核，</p>
+<ul>
+<li>请按照下面的截图选择 IDFA 相关的选项</li>
+</ul>
+<p><center> <img alt="" src="../../assets/dboxsdk/ios-dboxsdk-idfa-banner.png" /> </center></p>
+<ul>
+<li>业务管理后台打开多宝屋的 banner 广告</li>
+</ul>
+<p><center> <img alt="" src="../../assets/dboxsdk/ios-dboxsdk-banner.png" /> </center></p>
+<ul>
+<li>在审核界面的“备注”中，务必用英文或者中英文，详细说明找到多宝屋 banner 广告的步骤。</li>
+</ul>
+</div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>© 2014 Domob</p>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>
